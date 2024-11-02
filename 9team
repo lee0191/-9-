@@ -1,67 +1,67 @@
-#include <Servo.h> // 서보 모터 라이브러리 포함
+#include <Servo.h> // Include servo motor library
 
-Servo sl, sr; // 왼쪽과 오른쪽 서보 모터
+Servo sl, sr; // Left and right servo motors
 
-() {설정 무효화
- sl.attach(13); // 왼쪽 모터 13번 핀에 연결
- sr.attach(12); // 오른쪽 모터 12번 핀에 연결
+void setup() {
+  sl.attach(13); // Attach left motor to pin 13
+  sr.attach(12); // Attach right motor to pin 12
 }
 
-보이드 루프 () {
- 포워드(500); // 전진 0.5 초
- 좌회전(300); // 좌회전 0.3 초
- 포워드(500); // 전진 0.5 초
- 오른쪽으로(300); // 우회전 0.3 초
- 후진(500); // 후진 0.5 초
- spin(700); // 제자리 회전 0.7초
- waveLeft(400); // 좌우로 흔들기 (왼쪽) 0.4초
- waveRight(400); // 좌우로 흔들기 (오른쪽) 0.4초
+void loop() {
+  forward(500); // Move forward for 0.5 seconds
+  turnLeft(300); // Turn left for 0.3 seconds
+  forward(500); // Move forward for 0.5 seconds
+  turnRight(300); // Turn right for 0.3 seconds
+  backward(500); // Move backward for 0.5 seconds
+  spin(700); // Spin in place for 0.7 seconds
+  waveLeft(400); // Wave (left) for 0.4 seconds
+  waveRight(400); // Wave (right) for 0.4 seconds
 }
 
-앞으로(int 시간) {공백
- sl.write(1700);
- sr.write(1300);
- 지연(시간);
+void forward(int time) {
+  sl.write(1700);
+  sr.write(1300);
+  delay(time);
 }
 
-보이드 턴레프트(인트 타임) {
- sl.write(1300);
- sr.write(1300);
- 지연(시간);
+void turnLeft(int time) {
+  sl.write(1300);
+  sr.write(1300);
+  delay(time);
 }
 
-보이드 턴우회전(인트타임) {
- sl.write(1700);
- sr.write(1700);
- 지연(시간);
+void turnRight(int time) {
+  sl.write(1700);
+  sr.write(1700);
+  delay(time);
 }
 
-거꾸로 무효화(int 시간) {
- sl.write(1300);
- sr.write(1700);
- 지연(시간);
+void backward(int time) {
+  sl.write(1300);
+  sr.write(1700);
+  delay(time);
 }
 
-보이드 스핀(인트 타임) {
- sl.write(1700);
- sr.write(1700);
- 지연(시간);
+void spin(int time) {
+  sl.write(1700);
+  sr.write(1700);
+  delay(time);
 }
 
-보이드 웨이브레프트(인트 타임) {
- sl.write(1300);
- sr.write(1300);
- 지연(시간/2);
- sl.write(1700);
- sr.write(1700);
- 지연(시간/2);
+void waveLeft(int time) {
+  sl.write(1300);
+  sr.write(1300);
+  delay(time / 2);
+  sl.write(1700);
+  sr.write(1700);
+  delay(time / 2);
 }
 
-void waveRight(인타임) {
- sl.write(1700);
- sr.write(1700);
- 지연(시간/2);
- sl.write(1300);
- sr.write(1300);
- 지연(시간/2);
+void waveRight(int time) {
+  sl.write(1700);
+  sr.write(1700);
+  delay(time / 2);
+  sl.write(1300);
+  sr.write(1300);
+  delay(time / 2);
 }
